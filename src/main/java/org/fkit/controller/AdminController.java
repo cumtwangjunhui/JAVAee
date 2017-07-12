@@ -17,7 +17,7 @@ public class AdminController {
 	public String adminlogin(Model model) {	
 		return "adminlogin";
 	}
-	
+	//管理员
 	@RequestMapping(value="adminlogin")
 	public ModelAndView adminlogin(@RequestParam("adminloginnumber") String aln,
 			                 @RequestParam("adminpassword") String ap,Model model,ModelAndView mv,HttpSession session){
