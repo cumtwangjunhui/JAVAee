@@ -20,7 +20,7 @@
     <![endif]-->
     </head>
     <body>
-      <div style="margin:30px auto;width:15%;">
+      <div style="margin:30px auto;width:25%;">
           <div style="margin-left:35%;"><img src="img/touxiang.png" class="img-circle"></div><br>
           <div>
          <form action="enroll" method="post">
@@ -44,7 +44,7 @@
              <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-map-marker"></span></span>
               <input type="text" class="form-control" placeholder="用户地址" aria-describedby="sizing-addon2" name="address">
           </div>
-          <div style="margin-top:15px;margin-left:100px;"><button type="submit" class="btn btn-info">立即注册</button></div>
+          <div style="margin-top:15px;margin-left:150px;"><button type="submit" class="btn btn-info">立即注册</button></div>
          </form>
          </div>
       </div>

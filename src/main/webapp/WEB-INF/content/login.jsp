@@ -11,6 +11,36 @@
     <title>登录</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    <script type="text/javascript">
+$(document).ready(function(){
+	if($.cookie("rmbUser")=="true"){
+		$("#checkbox").attr("checked",true);
+		$("#loginnumber").val($.cookie("username"));
+		$("#password").val($.cookie("pwd"));
+		
+	}
+	
+});
+
+function Save(){
+	if($("#checkbox:checked").length==1){
+		var str_username=$("#loginnumber").val();
+		var str_password=$("#password").val();
+		$.cookie("rmbUser","true",{expires:7});
+		$.cookie("username",str_username,{expires:7});
+		$.cookie("pwd",str_password,{expires:7});
+	}else{
+		$.cookie("rmbUser","false",{expires:-1});
+		$.cookie("username","",{expires:-1});
+		$.cookie("pwd","",{expires:-1});
+	}
+	
+};
+
+</script>
+    
+     <script src="js/jquery.cookie.js" type="text/javascript"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -24,12 +54,12 @@
           <form action="userlogin" method="POST">
          <div class="input-group">
              <span class="input-group-addon" id="basic-addon1"><font color="#3366FF"><span class="glyphicon glyphicon-user"></span>用户账号：</font></span>
-             <input type="text" class="form-control" placeholder="loginnumber" aria-describedby="basic-addon1" name="loginnumber" value="${sessionScope.user.loginnumber }">
+             <input type="text" class="form-control" placeholder="loginnumber" aria-describedby="basic-addon1" name="loginnumber" id="loginnumber" value="${sessionScope.user.loginnumber }">
         </div>
            <br>
          <div class="input-group">
              <span class="input-group-addon" id="basic-addon1"><font color="#3366FF"><span class="glyphicon glyphicon-lock"></span>用户密码：</font></span>
-             <input type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1" name="password" value="${sessionScope.user.password}">
+             <input type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1" name="password" id="password " value="${sessionScope.user.password}">
          </div>
          <br>
          <div>
@@ -38,7 +68,7 @@
          <br>
          <div class="btn-group btn-group-justified" role="group" aria-label="...">
              <div class="btn-group" role="group">
-               <button class="btn btn-success" type="submit">立即登录</button>
+               <button class="btn btn-success" type="submit" onclick="Save()" >立即登录</button>
             </div>
             <div class="btn-group" role="group">
               <button type="submit" class="btn btn-info" formaction="reg">立即注册</button>

@@ -61,7 +61,7 @@ public class CartController {
 		List<Cart> cart_list = cartService.getAll();
 		// 将图书集合添加到model当中
 		model.addAttribute("cart_list", cart_list);
-		// 跳转到main页面
+		// 跳转到cart页面
 		return "cart";
 
 	}

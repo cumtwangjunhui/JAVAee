@@ -3,6 +3,7 @@ package org.fkit.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.fkit.domain.Book;
 import org.fkit.domain.Cart;
@@ -13,6 +14,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class BookController {
 	/**
@@ -107,5 +110,16 @@ public class BookController {
 				return "good";
 	}
 
+			@RequestMapping(value = "/bookadd",method = RequestMethod.POST)
+
+			public ModelAndView bookadd(String bookimage,String bookname,String booknomber,String booktype,String bookintro,String bookprice,int bookcount,ModelAndView mv, HttpSession session) {
+				// 根据输入的登录名和密码向数据库中添加新的用户信息,完成注册
+				Book book = bookService.bookadd(bookimage,bookname,booknomber,booktype,bookintro,bookprice,bookcount);
+				// 注册成功，将user对象设置到HttpSession作用范围域
+				session.setAttribute("book", book);
+				// 转发到login请求
+				mv.setViewName("bookadd");
+				return mv;
+			}
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.fkit.domain.Book;
 import org.fkit.domain.Cart;
+import org.fkit.domain.User;
 import org.fkit.mapper.BookMapper;
 import org.fkit.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,10 +56,28 @@ public class BookServiceImpl implements BookService{
 		@Override
 		public Book removeBook(int book_id) {
 			// TODO Auto-generated method stub
-			return bookMapper.removeBook(book_id);
+			Book book = bookMapper.findWithId(book_id);
+			bookMapper.removeBook(book);
+			return book;
 			
 		}
 	
+		@Override
+		public Book bookadd(String bookimage,String bookname,String booknomber,String booktype,String bookintro,String bookprice,int bookcount) {
+			// TODO Auto-generated method stub
+			Book book=new Book();
+			book.setBookname(bookname);
+			book.setBookimage(bookimage);
+			book.setBooknomber(booknomber);
+			book.setBooktype(booktype);
+			book.setBookintro(bookintro);
+			book.setBookprice(bookprice);
+			book.setBookcount(bookcount);
+			bookMapper.saveBook(book);
+			return book; 
+			
+			
+		}
 	
 	
 }

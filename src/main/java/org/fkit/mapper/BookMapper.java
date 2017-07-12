@@ -3,15 +3,15 @@ package org.fkit.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Many;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.mapping.FetchType;
 import org.fkit.domain.Book;
-import org.fkit.domain.Cart;
-import org.fkit.domain.User;
 
 public interface BookMapper {
 	/**
@@ -62,14 +62,18 @@ public interface BookMapper {
 	 //下架
 	 
 	    @Delete("delete from book where book_id=#{book_id}") 
-	    Book removeBook(int book_id);
+	    Book removeBook(Book book);
 	    // 
 	    @Select("select * from book where book_id=#{book_id}")
 	  		@Results({ @Result(id = true, column = "id", property = "id"),
 	  				@Result(column = "book_id", property = "book", many = @Many(select = "org.fkit.mapper.BookMapper.selectByBookId", fetchType = FetchType.LAZY)),				
 	  				 @Result(column = "book_id", property = "book_id") })
 	  		Book findWithId(@Param("book_id") int book_id);
-
+	    
+	    @Insert("insert into book(bookimage,bookname,booknomber,booktype,bookintro,bookprice,bookcount) values(#{bookimage},#{bookname},#{booknomber},#{booktype},#{bookintro},#{bookprice},#{bookcount})")
+		 @Options(useGeneratedKeys = true, keyProperty = "id")
+		 int saveBook(Book book);
+	    
 
 		
 }

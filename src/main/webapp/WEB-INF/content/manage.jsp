@@ -34,6 +34,7 @@ alert("目前在线人数为："${applicationScope.count}"人");
       <li role="presentation" class="btn btn-info"><a href="users">用户管理</a></li>
       <li role="presentation" class="btn btn-success"><a href="jieguobooks">商品管理</a></li>
       <li role="presentation" class="btn btn-success"><a href="history">已售商品</a></li>
+      <li role="presentation" class="btn btn-success"><a href="bookadd">添加商品</a></li>
    </ul>
    </div>
    <div>在线人数为：${applicationScope.count}人</div>

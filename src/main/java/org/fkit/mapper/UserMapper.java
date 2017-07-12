@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.fkit.domain.User;
 
 /**
@@ -40,6 +41,11 @@ public interface UserMapper {
 	 //遍历用户
 	 @Select("select * from user")
 	 List<User> findAll();
+	//修改用户信息
+	 @Update("update user set password=#{password} where id=#{id}")
+	 @Options(useGeneratedKeys = true, keyProperty = "id")
+	 int updateUser(User user);
+	 
 
 }
 
