@@ -22,7 +22,7 @@ public interface OrderMapper {
 		@Result(column = "count", property = "count"), @Result(column = "book_id", property = "book_id")})
 	List<Order> findAll();
 	//加入订单 
-    @Insert("insert into `order`(book_id,count) values(#{book_id},#{count})")
+    @Insert("insert into `order`(book_id,count,state) values(#{book_id},#{count},#{state})")
 	@Options(useGeneratedKeys = true, keyProperty = "id")
 	int saveOrder(Order order);
   //通过ID寻找书
@@ -37,4 +37,8 @@ public interface OrderMapper {
     //删除商品
     @Delete("delete from `order` where book_id=#{book_id}")
 	void removeOrder(Order order);
+    //更改书籍状态
+    @Update("update `order` set state=#{state} where book_id=#{book_id}")
+    void updateorder(Order order);
+    
 }

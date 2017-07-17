@@ -8,4 +8,5 @@ public interface OrderService {
 	Order findOrder(int book_id);
 	Order saveOrder(int book_id);
 	Order addOrder(int book_id);
+	Order update(int book_id);
 }  

@@ -12,24 +12,22 @@
 <title>找回密码</title>
 </head>
 <body style="width:60%;margin:auto auto;" >
-<h1><font color="#66CCFF">输入您的用户名以及您的电话号快速找回密码</font></h1>
+<h1><font color="#66CCFF">输入您的昵称以及您的邮箱快速找回密码</font></h1>
 <h2><font color="red">${requestScope.message }</font></h2>
 <br>
 <div>
 <form style="width:60%;margin:auto auto;float:left;" action="find" method="post">
   <div class="form-group" style="width:40%">
-    <label for="exampleInputEmail1">请输入您的账号：</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="用户名" name="loginnumber">
+    <label for="exampleInputEmail1">请输入您的昵称：</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="昵称" name="loginname">
   </div>
   <br>
   <div class="form-group" style="width:40%">
-    <label for="exampleInputPassword1">请输入您的电话：</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="手机号" name="phone">
+    <label for="exampleInputPassword1">请输入您的邮箱：</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="邮箱" name="email">
   </div>
   <br>
   <button type="submit" class="btn btn-danger">快速找回密码</button>
-  <br>
-   <h2>${sessionScope.user.username}用户的密码为：${sessionScope.user.password}</h2>
     
 </form>
 </div>

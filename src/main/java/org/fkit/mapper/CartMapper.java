@@ -33,7 +33,8 @@ public interface CartMapper {
 				@Result(column = "count", property = "count"), @Result(column = "book_id", property = "book_id") })
 		Cart findWithId(@Param("book_id") int book_id);
         //增加书籍数量
-	    @Update("update cart set count=count+1 where book_id=#{book_id}")
+	    @Update("update cart set count=count+1  where book_id=#{book_id}")
+	  
 		void addCart(Cart cart);
         //清空购物车
 	    @Delete("delete from cart ")

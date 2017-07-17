@@ -19,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class BookController {
 	/**
-	 * 自动注入BookService
+	 * yjjn自动注入BookService
 	 * */
 	@Autowired
 	@Qualifier("bookService")
@@ -98,11 +98,9 @@ public class BookController {
 		//下架
 			@RequestMapping(value="/removebook")
 			public String removebook(Model model,HttpServletRequest request){
-				String book_id = request.getParameter("book_id");
-				int book_id_ = Integer.parseInt(book_id);
-				
-				bookService.removeBook(book_id_);
-				
+				String id = request.getParameter("book_id");
+				int id_ = Integer.parseInt(id);				
+				bookService.removeBook(id_);				
 				List<Book> book_list = bookService.getAll();
 				// 将图书集合添加到model当中
 				model.addAttribute("book_list", book_list);
@@ -112,14 +110,19 @@ public class BookController {
 
 			@RequestMapping(value = "/bookadd",method = RequestMethod.POST)
 
-			public ModelAndView bookadd(String bookimage,String bookname,String booknomber,String booktype,String bookintro,String bookprice,int bookcount,ModelAndView mv, HttpSession session) {
+			public ModelAndView bookadd(String bookimage,String bookname,String booknomber,String booktype,String bookintro,String bookprice,int bookcount,ModelAndView mv, HttpSession session,Model model) {
 				// 根据输入的登录名和密码向数据库中添加新的用户信息,完成注册
 				Book book = bookService.bookadd(bookimage,bookname,booknomber,booktype,bookintro,bookprice,bookcount);
 				// 注册成功，将user对象设置到HttpSession作用范围域
 				session.setAttribute("book", book);
-				// 转发到login请求
-				mv.setViewName("bookadd");
+				List<Book> book_list = bookService.getAll();
+				// 将图书集合添加到model当中
+				
+				model.addAttribute("book_list", book_list);
+				// 转发到good请求
+				mv.setViewName("good");
 				return mv;
 			}
+			 
 
 }

@@ -3,7 +3,7 @@ package org.fkit.service;
 import java.util.List;
 
 import org.fkit.domain.Book;
-import org.fkit.domain.Cart;
+
 
 public interface BookService {
 	/**
@@ -25,8 +25,10 @@ public interface BookService {
 //遍历生活书的集合
 	List<Book> shgetAll(String booktype);
 	List<Book> getAll();
-	Book removeBook(int book_id);
+	Book removeBook(int id);
+	
 	Book bookadd(String bookimage,String bookname,  String booknomber, String booktype, String bookintro,
 			String bookprice, int bookcount);
+	
 	
 }

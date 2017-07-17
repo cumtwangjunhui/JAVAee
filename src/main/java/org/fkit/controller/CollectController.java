@@ -47,10 +47,13 @@ public class CollectController {
 		public String savecollect(HttpServletRequest request,Model model) {
 			String book_id = request.getParameter("book_id");
 			int book_id_ = Integer.parseInt(book_id);
-			
-			
+			Collect collect=collectService.findCollect(book_id_);
+			if(collect==null){
 				collectService.saveCollect(book_id_);	
-				
+			}else{
+				String collectmessage="本商品已经添加收藏夹";
+				System.out.println(collectmessage);
+			}
 			List<Collect> collect_list = collectService.getAll();
 			// 将图书集合添加到model当中
 			model.addAttribute("collect_list", collect_list);

@@ -12,38 +12,14 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="css/biao.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
-.thtd{
-        color:coral;
-        font-family:华文细黑;
-        font-size: 16px;
-        padding: 5px 15px;
-        }
-        table {
-	border-collapse: collapse;
-	border-spacing: 0;
-	border-left: 1px solid #888;
-	border-top: 1px solid #888;
-	background: #efefef;
-}
-th, td {
-	border-right: 1px solid #888;
-	border-bottom: 1px solid #888;
-	padding: 5px 15px;
-}
-
-th {
-	font-weight: bold;
-	background: #ccc;
-}
-    </style>
+   
   </head>
   <body>
  <div>
@@ -59,6 +35,7 @@ th {
 			<th class="thtd">书籍名称</th>
 			<th class="thtd">书籍价格</th>
 			<th class="thtd">书籍数量</th>
+			<th class="thtd">书籍状态</th>
 			<th class="thtd"><font color="blue">确认收货</font></th>
 			
 			<th class="thtd"><font color="red">删除</font></th>
@@ -70,6 +47,7 @@ th {
 				<td>${book.bookname}</td>
 				<td>${book.bookprice}</td>
 				<td>${order.count}</td>
+				<td>${order.state}</td>
 			<td>
 			<a class="btn btn-info" href="buy?book_id=${book.id}" role="button">确认收货</a>
 		    </td>

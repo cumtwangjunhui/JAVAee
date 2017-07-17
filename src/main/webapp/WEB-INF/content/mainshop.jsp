@@ -91,6 +91,7 @@ if (i<10)
             <li><a href="cart">我的购物车</a></li>
             <li><a href="collect">我的收藏</a></li>
             <li><a href="order">我的订单</a></li>
+            <li><a href="updatepwd">修改密码</a></li>
              <li><a href="main">注销</a></li>
             
           </ul>

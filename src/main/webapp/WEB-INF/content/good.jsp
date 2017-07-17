@@ -12,39 +12,14 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="css/biao.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
-.thtd{
-        color:coral;
-        font-family:华文细黑;
-        font-size: 16px;
-        padding: 5px 15px;
-        }
-        table {
-	border-collapse: collapse;
-	border-spacing: 0;
-	border-left: 1px solid #888;
-	border-top: 1px solid #888;
-	background: #efefef;
-}
 
-th, td {
-	border-right: 1px solid #888;
-	border-bottom: 1px solid #888;
-	padding: 5px 15px;
-}
-
-th {
-	font-weight: bold;
-	background: #ccc;
-}
-    </style>
   </head>
   <body>
  <div>
@@ -73,6 +48,31 @@ th {
             </tr>
             </c:forEach>
         </table>
+        
+          <h1>添加书籍</h1>
+         <br>
+         <form action="bookadd" method="post">
+         <table class="table table-hover" >
+                <td width="200px" class="thtd">书籍图片</td>
+                <td class="thtd">书籍编号</td>
+                <td class="thtd">书籍名称</td>
+                <td class="thtd">书籍类型</td>
+                <td class="thtd">书籍详情</td> 
+                <td class="thtd">书籍价格</td>
+                <td class="thtd">书籍数量</td>
+                <td class="thtd">添加</td>
+            <tr>
+                <td><input type="text" name="bookimage"></td>
+                <td><input type="text" name="booknomber"></td>
+                <td><input type="text" name="bookname"></td>
+                 <td><input type="text" name="booktype"></td>
+                <td><input type="text" name="bookintro"></td>
+                <td><input type="text" name="bookprice"></td>
+                <td><input type="text" name="bookcount"></td>
+                <td><button type="submit" class="btn btn-info">添加</button></td> 
+            </tr>
+           
+        </table></form>
      </div>
  </div>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

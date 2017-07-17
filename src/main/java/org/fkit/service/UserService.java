@@ -15,7 +15,9 @@ public interface UserService {
 	 * @return 找到返回User对象，没有找到返回null
 	 * */
 	User login(String loginnumber,String password);
-	User register(String username,String loginnumber,String password,String phone,String address);
+	User register(String username,String loginnumber,String password,String phone,String address,String email);
 	User find(String loginnumber,String phone);
+	User update(String loginnumber,String password,String newpwd);
+	User removeUser(int id);
 	List<User> getAll();
 }

@@ -21,11 +21,16 @@
     </head>
     <body>
       <div style="margin:200px auto;width:15%;">
+      <h3>请对您所购买的商品做出评价</h3>
           <div>
          <form action="pingjia" method="post">
           <div class="input-group">
              <span  id="sizing-addon2">物流评价</span>
               <input type="text" class="form-control" placeholder="物流评价" aria-describedby="sizing-addon2" name="wuliu">
+          </div>
+          <div class="input-group">
+             <span  id="sizing-addon2">服务评价</span>
+              <input type="text" class="form-control" placeholder="物流评价" aria-describedby="sizing-addon2" name="fuwu">
           </div>
           <div class="input-group" style="margin-top:15px">
              <span  id="sizing-addon2">质量评价</span>

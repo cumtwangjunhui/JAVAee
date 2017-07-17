@@ -36,6 +36,13 @@ function Save(){
 		$.cookie("pwd","",{expires:-1});
 	}
 	
+	
+	
+	
+	
+	
+	
+	
 };
 
 </script>

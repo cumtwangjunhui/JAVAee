@@ -35,17 +35,6 @@ public class UserServiceImpl implements UserService {
 		return userMapper.findWithLoginnameAndPassword(loginnumber, password);
 	}
 	@Override
-	public User register(String username, String loginnumber, String password, String phone, String address) {
-		User user=new User();
-		user.setUsername(username);
-		user.setLoginnumber(loginnumber);
-		user.setPassword(password);
-		user.setPhone(phone);
-		user.setAddress(address);
-		userMapper.saveUser(user);
-		return user;
-	}
-	@Override
 	public User find(String loginnumber, String phone) {
 		// TODO Auto-generated method stub
 		 return userMapper.findPassword(loginnumber, phone);
@@ -53,8 +42,39 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<User> getAll() {
 		// TODO Auto-generated method stub
-		System.out.print("nihao");
+		
 		return userMapper.findAll();
+	}
+	@Override
+	public User removeUser(int id) {
+		// TODO Auto-generated method stub
+		User user=userMapper.findWithId(id);
+		userMapper.removeUser(user);
+		return user;
+	}
+	@Override
+	public User update(String loginnumber, String password,String newpwd){
+		// TODO Auto-generated method stub
+		User user=new User();
+		user.setLoginnumber(loginnumber);
+		user.setPassword(password);
+		user.setNewpwd(newpwd);
+		userMapper.updatemima(user);
+		return user;
+	}
+	@Override
+	public User register(String username, String loginnumber, String password, String phone, String address,
+			String email) {
+		// TODO Auto-generated method stub
+		User user=new User();
+		user.setUsername(username);
+		user.setLoginnumber(loginnumber);
+		user.setPassword(password);
+		user.setPhone(phone);
+		user.setAddress(address);
+		user.setEmail(email);
+		userMapper.saveUser(user);
+		return user;
 	}
 	
 

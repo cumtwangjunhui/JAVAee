@@ -7,7 +7,10 @@
  * user guide available at https://docs.gradle.org/3.2.1/userguide/tutorial_java_projects.html 
 
  */
+ /*
+ * 使用maven做为jar包的信赖管理,指定web项目，有这行时我们需要创建 src/main/webapp 目录, 指定项目为java项目apply plugin: 'jetty'：加入jetty的支持，代码修改后直接执行命令gradle jettyRun即可运行web项目
 
+ */
 // Apply the java plugin to add support for Java
 apply plugin: 'war'
 apply plugin: 'java'
@@ -50,6 +53,15 @@ dependencies {
     testCompile 'org.slf4j:slf4j-log4j12:1.7.21'
     testCompile 'org.springframework:spring-test:4.1.6.RELEASE'
     compile 'org.springframework:spring-test-mvc:1.0.0.M1'
+    testCompile group: 'org.springframework', name: 'spring-test', version: '4.2.5.RELEASE'
+    
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+	compile 'javax.servlet:jstl:1.2'
+    compile 'aspectj:aspectjweaver:1.5.4'
+    compile 'commons-io:commons-io:2.5'
+    compile 'commons-fileupload:commons-fileupload:1.2.2'
+    compile 'org.apache.commons:commons-email:1.4'
+    
 }
 tasks.withType(JavaCompile) {  
     options.encoding = "UTF-8"  

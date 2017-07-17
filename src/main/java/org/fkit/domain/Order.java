@@ -8,7 +8,10 @@ public class Order {
 	private int count;
 	private int book_id;
 	private int user_id;
+	private String state;
 	
+
+
 	public int getUser_id() {
 		return user_id;
 	}
@@ -56,6 +59,16 @@ public class Order {
 	public void setBook_id(int book_id) {
 		this.book_id = book_id;
 	}
+
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
 }
 
 

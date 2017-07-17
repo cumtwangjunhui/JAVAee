@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import org.fkit.domain.Order;
+import org.fkit.service.BookService;
 import org.fkit.service.CartService;
 import org.fkit.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class OrderController {
 	@Autowired
 	@Qualifier("cartService")
 	private CartService cartService;
+	@Autowired
+	@Qualifier("bookService")
+	private BookService bookService;
 	//我的订单
 	@RequestMapping(value="/order")
 	public String order(Model model){
@@ -48,16 +52,17 @@ public class OrderController {
 			String book_id = request.getParameter("book_id");
 			int book_id_ = Integer.parseInt(book_id);
 			Order order=orderService.findOrder(book_id_);
+			
 			if (order == null) {
 				orderService.saveOrder(book_id_);				
 			}else {			
 				orderService.addOrder(book_id_);				
 			}
+			
 			cartService.removeCart(book_id_);
 			List<Order> order_list = orderService.getAll();
 			// 将图书集合添加到model当中
 			model.addAttribute("order_list", order_list);
-			// 跳转到cart页面
 			return "order";
 		}
 }

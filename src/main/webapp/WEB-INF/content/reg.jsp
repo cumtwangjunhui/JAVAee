@@ -41,6 +41,10 @@
               <input type="text" class="form-control" placeholder="用户手机" aria-describedby="sizing-addon2" name="phone">
           </div>
           <div class="input-group" style="margin-top:15px">
+             <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-envelope"></span></span>
+              <input type="text" class="form-control" placeholder="用户邮箱" aria-describedby="sizing-addon2" name="email">
+          </div>
+          <div class="input-group" style="margin-top:15px">
              <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-map-marker"></span></span>
               <input type="text" class="form-control" placeholder="用户地址" aria-describedby="sizing-addon2" name="address">
           </div>

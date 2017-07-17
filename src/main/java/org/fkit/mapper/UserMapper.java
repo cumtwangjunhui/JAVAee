@@ -2,6 +2,7 @@ package org.fkit.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
@@ -9,6 +10,7 @@ import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.fkit.domain.Cart;
 import org.fkit.domain.User;
 
 /**
@@ -25,7 +27,7 @@ public interface UserMapper {
 	@Select("select * from user where loginnumber=#{loginnumber} and password=#{password}")
 	 User findWithLoginnameAndPassword(@Param("loginnumber") String loginnumber, @Param("password") String password);
 
-	 @Insert("insert into user(username,loginnumber,password,phone,address) values(#{username},#{loginnumber},#{password},#{phone},#{address})")
+	 @Insert("insert into user(username,loginnumber,password,phone,address,email) values(#{username},#{loginnumber},#{password},#{phone},#{address},#{email})")
 	 @Options(useGeneratedKeys = true, keyProperty = "id")
 	 int saveUser(User user);
 	 
@@ -41,11 +43,18 @@ public interface UserMapper {
 	 //遍历用户
 	 @Select("select * from user")
 	 List<User> findAll();
-	//修改用户信息
-	 @Update("update user set password=#{password} where id=#{id}")
-	 @Options(useGeneratedKeys = true, keyProperty = "id")
-	 int updateUser(User user);
-	 
-
+	 //删除用户
+	 @Delete("delete from user where id=#{id}")
+		void removeUser(User user);
+    //用id找用户
+	 @Select("select * from user where id=#{id}")
+		@Results({ @Result(id = true, column = "id", property = "id"), @Result(column = "username", property = "username"),
+				@Result(column = "loginnumber", property = "loginnumber"), @Result(column = "password", property = "password"),
+				@Result(column = "phone", property = "phone"),@Result(column = "address", property = "address"),
+				 })
+	 User findWithId(@Param("id") int id);
+	 //修改密码
+	 @Update("update user set password=#{newpwd} where loginnumber=#{loginnumber} and password=#{password}")
+	 int updatemima(User user);
 }
 

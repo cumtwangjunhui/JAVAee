@@ -6,6 +6,7 @@ import org.fkit.domain.Book;
 import org.fkit.domain.Cart;
 import org.fkit.domain.User;
 import org.fkit.mapper.BookMapper;
+import org.fkit.mapper.OrderMapper;
 import org.fkit.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,8 @@ public class BookServiceImpl implements BookService{
 	 * */
 	@Autowired
 	private BookMapper bookMapper;
+	@Autowired
+	private OrderMapper orderMapper;
 	@Transactional(readOnly=true)	
 	//查文艺书
 	@Override
@@ -54,9 +57,9 @@ public class BookServiceImpl implements BookService{
 			return bookMapper.findAll();
 		}
 		@Override
-		public Book removeBook(int book_id) {
+		public Book removeBook(int id) {
 			// TODO Auto-generated method stub
-			Book book = bookMapper.findWithId(book_id);
+			Book book = bookMapper.findWithId(id);
 			bookMapper.removeBook(book);
 			return book;
 			

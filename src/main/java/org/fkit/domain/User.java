@@ -5,6 +5,15 @@ public class  User{
 	private String username; // 登录名
 	private String loginnumber; // 用户名
 	private String password; // 密码
+	private String email;//
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	private String newpwd;
 	public int getId() {
 		return id;
 	}
@@ -47,6 +56,12 @@ public class  User{
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", loginnumber=" + loginnumber + ", password=" + password
 				+ ", phone=" + phone + ", address=" + address + "]";
+	}
+	public String getNewpwd() {
+		return newpwd;
+	}
+	public void setNewpwd(String newpwd) {
+		this.newpwd = newpwd;
 	}
 
 }

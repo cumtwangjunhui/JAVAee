@@ -12,7 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 public class AuthorizationInterceptor  implements HandlerInterceptor {
 
 	// 不拦截"/main"和"/login"请求
-	private static final String[] IGNORE_URI = {"main", "login","bookadd","adminlogin"};	
+	private static final String[] IGNORE_URI = {"firstdetail",
+			"thirddetail","seconddetail","lianxi","ours","lisi",
+			"updatepwd","gaimima","removebook","enroll","find","deleteuser","users","admindoderupdate","removeorder","lisi","good","adminorder","shoper","jieguobooks","main", "users","login","bookadd","admin","adminlogin","reg"};	
 	 /** 
      * 该方法将在整个请求完成之后执行， 主要作用是用于清理资源的，
      * 该方法也只能在当前Interceptor的preHandle方法的返回值为true时才会执行。 

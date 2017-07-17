@@ -42,7 +42,9 @@ public class OrderServicerImpl implements OrderService{
 		Order order = new Order();
 		order.setBook_id(book_id);
 		final int i = 1;
+		final String bookstate="未发货";
 		order.setCount(i);
+		order.setState(bookstate);
 		orderMapper.saveOrder(order);
 		return order;
 	}
@@ -53,6 +55,20 @@ public class OrderServicerImpl implements OrderService{
 		Order order = orderMapper.findWithId(book_id);
 		orderMapper.addOrder(order);
 		return order;
+	}
+
+	@Override
+	public Order update(int book_id) {
+		// TODO Auto-generated method stub
+		Order order = new Order();
+		order.setBook_id(book_id);
+		final String bookstate="已发货";
+		order.setState(bookstate);
+		orderMapper.updateorder(order);
+		return order;
+		
+		
+	
 	}
 
 }
