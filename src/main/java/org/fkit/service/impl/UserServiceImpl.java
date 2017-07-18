@@ -35,9 +35,9 @@ public class UserServiceImpl implements UserService {
 		return userMapper.findWithLoginnameAndPassword(loginnumber, password);
 	}
 	@Override
-	public User find(String loginnumber, String phone) {
+	public User find(String loginnumber, String email) {
 		// TODO Auto-generated method stub
-		 return userMapper.findPassword(loginnumber, phone);
+		 return userMapper.findPassword(loginnumber, email);
 	}
 	@Override
 	public List<User> getAll() {

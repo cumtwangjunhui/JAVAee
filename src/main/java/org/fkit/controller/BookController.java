@@ -111,9 +111,9 @@ public class BookController {
 			@RequestMapping(value = "/bookadd",method = RequestMethod.POST)
 
 			public ModelAndView bookadd(String bookimage,String bookname,String booknomber,String booktype,String bookintro,String bookprice,int bookcount,ModelAndView mv, HttpSession session,Model model) {
-				// 根据输入的登录名和密码向数据库中添加新的用户信息,完成注册
+				// 根据输入的登录名和密码向数据库中添加新的用户信息,完成加入
 				Book book = bookService.bookadd(bookimage,bookname,booknomber,booktype,bookintro,bookprice,bookcount);
-				// 注册成功，将user对象设置到HttpSession作用范围域
+				// 注册成功，将book对象设置到HttpSession作用范围域
 				session.setAttribute("book", book);
 				List<Book> book_list = bookService.getAll();
 				// 将图书集合添加到model当中
@@ -123,6 +123,23 @@ public class BookController {
 				mv.setViewName("good");
 				return mv;
 			}
-			 
+			//多图展示
+			@RequestMapping(value="/xiangqing")
+			public String xiang(HttpServletRequest request,Model model){
+				String book_id = request.getParameter("book_id");
+				int id = Integer.parseInt(book_id);
+				Book book=bookService.find(id);
+				model.addAttribute("book", book);
+				model.addAttribute("img1", book.getBookimage1());
+				model.addAttribute("img2", book.getBookimage2());
+				model.addAttribute("img3", book.getBookimage3());
+				model.addAttribute("img4", book.getBookimage4());
+				model.addAttribute("intro", book.getBookintro());
+				model.addAttribute("price", book.getBookprice());
+				model.addAttribute("bookname", book.getBookname());
+				return "detail";
+				
+			}
+		
 
 }

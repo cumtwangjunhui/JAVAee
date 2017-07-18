@@ -70,26 +70,22 @@ public class UserController {
 			mv.setViewName("login");
 			return mv;
 		}
-	 //通过昵称以及邮箱来找回密码
-	 @RequestMapping(value="/find",method = RequestMethod.POST)
+	 //通过账户以及邮箱来找回密码
+	 @RequestMapping(value="/find")
 		public ModelAndView find(
-			String loginname,String email,
+			String loginnumber,String email,
 			ModelAndView mv,
-			HttpSession session,HttpServletRequest request,HttpServletResponse response)throws Exception{					
-		    
-		 User user=userService.find(loginname,email);
-			if(user!=null){
-				
+			HttpSession session,HttpServletRequest request,HttpServletResponse response)throws Exception{						    
+		 User user=userService.find(loginnumber,email);
+			if(user!=null){	
 				StringBuffer url = new StringBuffer();
 				StringBuilder builder = new StringBuilder();
 				// 正文
-				builder.append(
-						"<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" /></head><body>");
-				url.append("<font color='red'>" + user + "</font>");
-				builder.append("<br/><br/>");
-				builder.append("<div>" + url + "</div>");
-				builder.append("</body></html>");
-				System.out.println("wangjunhui");
+				builder.append("");
+				url.append( "您的密码是："+user.getPassword()+"");
+				builder.append("");
+				builder.append("" +url+ "");
+				builder.append("");
 				SimpleEmail sendemail = new SimpleEmail();
 				sendemail.setHostName("smtp.163.com");// 指定要使用的邮件服务器
 				sendemail.setAuthentication("wjh1997_07_18@163.com", "wjh09153760");// 使用163的邮件服务器需提供在163已注册的用户名、密码
@@ -147,4 +143,5 @@ public class UserController {
 		 return "main";
 		 
 	 }
+	 
 }

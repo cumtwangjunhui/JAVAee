@@ -30,6 +30,9 @@
 			<th class="thtd">书籍编号</th>
 			<th class="thtd">书籍名称</th>
 			<th class="thtd">书籍价格</th>
+			<th class="thtd">物流评价</th>
+			<th class="thtd">质量评价</th>
+			<th class="thtd">服务评价</th>
 		    </tr>
 		    
            <c:forEach items="${requestScope.lisi_list }" var="lisi">
@@ -39,6 +42,9 @@
 				<td>${book.booknomber}</td>
 				<td>${book.bookname}</td>
 				<td>${book.bookprice}</td>
+				<td>${lisi.wuliu}</td>
+				<td>${lisi.ziliang}</td>
+				<td>${lisi.fuwu}</td>
 		  </tr>
 		</c:forEach>	
 		</c:forEach>		

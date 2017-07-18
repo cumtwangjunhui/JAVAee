@@ -31,21 +31,19 @@
                 <td class="thtd">书籍详情</td> 
                 <td class="thtd">书籍价格</td>
                 <td class="thtd">书籍数量</td>
-                <td class="thtd">加入购物车</td>
-                <td class="thtd">书籍购买</td>
-                <td class="thtd">书籍收藏</td>
+                <td class="thtd">书籍详情</td>
+               
             
             <c:forEach items="${requestScope.shbook_list}" var="book">      
             <tr>
-                <td><img src="img/${book.bookimage }"></td>
+                 <td><a href="xiangqing?book_id=${book.id}"><img src="img/${book.bookimage }"></a></td>
                 <td>${book.booknomber}</td>
                 <td>${book.bookname}</td> 
                 <td>${book.bookintro}</td>
                 <td><font color="red">${book.bookprice}</font></td>
                 <td>${book.bookcount}</td>
-                <td><a class="btn btn-primary" href="save?book_id=${book.id}" role="button" >购物车</a></td>
-                <td><a class="btn btn-info" href="saveorder?book_id=${book.id}" role="button">购买</a></td> 
-                <td><a class="btn btn-danger" href="savecollect?book_id=${book.id}" role="button">收藏</a></td> 
+                 <td><a class="btn btn-success" href="xiangqing?book_id=${book.id}" role="button">详情</a></td>
+                
             </tr>
             </c:forEach>
         </table>

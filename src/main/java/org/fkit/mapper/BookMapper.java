@@ -29,8 +29,9 @@ public interface BookMapper {
 	@Select("select * from book where id=#{id}")
 	@Results({ @Result(id = true, column = "id", property = "id"), @Result(column = "bookimage", property = "bookimage"),
 			@Result(column = "booknomber", property = "booknomber"), @Result(column = "booktype", property = "booktype"),
-			@Result(column = "bookname", property = "bookname"),
-			@Result(column = "bookintro", property = "bookintro"), @Result(column = "bookprice", property = "bookprice"),
+			@Result(column = "bookname", property = "bookname"),@Result(column = "bookimage1", property = "bookimage1"),@Result(column = "bookimage2", property = "bookimage2"),
+			@Result(column = "bookintro", property = "bookintro"), @Result(column = "bookprice", property = "bookprice"),@Result(column = "bookimage3", property = "bookimage3"),
+			@Result(column = "bookimage4", property = "bookimage4"),
 			@Result(column = "bookcount", property = "bookcount"),@Result(column = "remark", property = "bookimage")})
 	List<Book> selectByBookId(int id);
 	/**
@@ -78,6 +79,6 @@ public interface BookMapper {
 		 @Options(useGeneratedKeys = true, keyProperty = "id")
 		 int saveBook(Book book);
 	   
-	   
+	 
 		
 }

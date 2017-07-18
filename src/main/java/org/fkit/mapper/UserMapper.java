@@ -38,8 +38,8 @@ public interface UserMapper {
 				 })
 		List<User> selectByUserId(int id);
 	 //找回密码
-	 @Select("select * from user where loginnumber=#{loginnumber} and phone=#{phone}")
-	 User findPassword(@Param("loginnumber") String loginnumber, @Param("phone") String phone);
+	 @Select("select * from user where loginnumber=#{loginnumber} and email=#{email}")
+	 User findPassword(@Param("loginnumber") String loginnumber, @Param("email") String email);
 	 //遍历用户
 	 @Select("select * from user")
 	 List<User> findAll();

@@ -11,6 +11,27 @@ public class Lisi {
 	private List<Book> book;
 	private int book_id;
 	private int user_id;
+	private String wuliu;
+	private String ziliang;
+	private String fuwu;
+	public String getWuliu() {
+		return wuliu;
+	}
+	public void setWuliu(String wuliu) {
+		this.wuliu = wuliu;
+	}
+	public String getZiliang() {
+		return ziliang;
+	}
+	public void setZiliang(String ziliang) {
+		this.ziliang = ziliang;
+	}
+	public String getFuwu() {
+		return fuwu;
+	}
+	public void setFuwu(String fuwu) {
+		this.fuwu = fuwu;
+	}
 	public int getId() {
 		return id;
 	}

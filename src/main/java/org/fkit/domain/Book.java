@@ -16,6 +16,34 @@ public class Book {
     private String bookintro;
     private String bookprice;
     private int bookcount;
+    private String bookimage1;
+    public String getBookimage1() {
+		return bookimage1;
+	}
+	public void setBookimage1(String bookimage1) {
+		this.bookimage1 = bookimage1;
+	}
+	public String getBookimage2() {
+		return bookimage2;
+	}
+	public void setBookimage2(String bookimage2) {
+		this.bookimage2 = bookimage2;
+	}
+	public String getBookimage3() {
+		return bookimage3;
+	}
+	public void setBookimage3(String bookimage3) {
+		this.bookimage3 = bookimage3;
+	}
+	public String getBookimage4() {
+		return bookimage4;
+	}
+	public void setBookimage4(String bookimage4) {
+		this.bookimage4 = bookimage4;
+	}
+	private String bookimage2;
+    private String bookimage3;
+    private String bookimage4;
     public String getBookprice() {
 		return bookprice;
 	}

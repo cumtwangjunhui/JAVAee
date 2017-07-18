@@ -12,14 +12,14 @@
 <title>找回密码</title>
 </head>
 <body style="width:60%;margin:auto auto;" >
-<h1><font color="#66CCFF">输入您的昵称以及您的邮箱快速找回密码</font></h1>
+<h1><font color="#66CCFF">输入您的账号以及您的邮箱快速找回密码</font></h1>
 <h2><font color="red">${requestScope.message }</font></h2>
 <br>
 <div>
 <form style="width:60%;margin:auto auto;float:left;" action="find" method="post">
   <div class="form-group" style="width:40%">
-    <label for="exampleInputEmail1">请输入您的昵称：</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="昵称" name="loginname">
+    <label for="exampleInputEmail1">请输入您的账号：</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="账号" name="loginnumber">
   </div>
   <br>
   <div class="form-group" style="width:40%">

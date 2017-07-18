@@ -81,6 +81,13 @@ public class BookServiceImpl implements BookService{
 			
 			
 		}
+		@Override
+		public Book find(int id) {
+			// TODO Auto-generated method stub
+			return bookMapper.findWithId(id);
+		}
+	
+		
 	
 	
 }

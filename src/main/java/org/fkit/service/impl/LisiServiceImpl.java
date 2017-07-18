@@ -36,4 +36,17 @@ public class LisiServiceImpl implements LisiService{
 		return lisi;
 	}
 
+	@Override
+	public Lisi pingjia(String wuliu, String ziliang, String fuwu, int book_id) {
+		// TODO Auto-generated method stub
+		Lisi lisi=new Lisi();
+		lisi.setWuliu(wuliu);
+		lisi.setBook_id(book_id);
+		lisi.setZiliang(ziliang);
+		lisi.setFuwu(fuwu);
+		lisiMapper.ping(lisi);
+		return lisi;
+		
+	}
+
 }

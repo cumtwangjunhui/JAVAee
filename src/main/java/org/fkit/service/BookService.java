@@ -26,7 +26,7 @@ public interface BookService {
 	List<Book> shgetAll(String booktype);
 	List<Book> getAll();
 	Book removeBook(int id);
-	
+    Book find(int id);
 	Book bookadd(String bookimage,String bookname,  String booknomber, String booktype, String bookintro,
 			String bookprice, int bookcount);
 	
