@@ -34,14 +34,7 @@ function Save(){
 		$.cookie("rmbUser","false",{expires:-1});
 		$.cookie("username","",{expires:-1});
 		$.cookie("pwd","",{expires:-1});
-	}
-	
-	
-	
-	
-	
-	
-	
+	}	
 	
 };
 
